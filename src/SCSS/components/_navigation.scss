@@ -1,0 +1,38 @@
+// navigation footer
+.nav {
+    &__li {
+        display: inline-block;
+        transition: all .3s;
+        &:not(:last-child) {
+        margin-right: 5rem;
+        // media
+        @include respond(tab-port) {
+            margin-right: 0;
+            margin-bottom: 3rem;
+        }
+        // media
+        @include respond(tab-port) {
+            display: block;
+        }
+        }
+        a {
+            color: $color-white;
+            letter-spacing: .2rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            transition: all .3s;
+            &:hover {
+                color: $color-brown-light;
+                text-shadow: $shadow-03; 
+            }
+        }
+        &:hover {
+            &:nth-child(2n){
+                transform: skewY(5deg);
+            }
+            &:nth-child(2n+1){
+                transform: skewY(-5deg);
+            }
+        }
+    }
+}

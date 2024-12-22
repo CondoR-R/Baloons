@@ -1,0 +1,15 @@
+// footer
+.footer {
+    background: #333;
+    padding: 8rem 0;
+    text-align: center;
+    &__logo img {
+        width: 12rem;
+        height: 15.1rem;
+        margin-bottom: 5rem;
+    }
+    // media
+    @include respond(tab-port) {
+        padding: 4rem 0;
+    }
+}

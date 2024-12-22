@@ -1,0 +1,99 @@
+// Применение шрифта, начальные параметры текста
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    color: $color-grey;
+}
+// настройка заголовка в header
+.title-first {
+    // цвет текста
+    color: $color-white;
+
+    // первая строка
+    &__main {
+        display: block;
+        // настройка текста
+        font-size: 5rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: 6rem;
+        letter-spacing: 1rem;
+        margin-bottom: 1rem;
+        // анимация
+        animation-name: leftToRight;
+        @include animation-settings;
+        // media
+        @include respond(tab-land) {
+            font-size: 4rem;
+        }
+    }
+
+    // вторая строка
+    &__secondary {
+        display: block;
+        // настройка текста
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: .5rem;
+        line-height: 4.8rem;
+        // анимация
+        @include animation-settings;
+        animation-name: rightToleft;
+        margin-bottom: 5rem;
+        // media
+        @include respond(tab-land) {
+            font-size: 3.6rem;
+        }
+    }
+    
+}
+.title-secondary {
+    font-size: $font-size-h2;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0%, rgba($color-brown-dark, 0.7) 100%);
+    background-clip: text; // накладывает градиент на текст
+    color: transparent; // делает цвет текста прозрачным, чтобы был видел background
+    transition: all .4s;
+    backface-visibility: hidden; // видимость задней стороны (не видна)
+    text-shadow: $shadow-025;
+    &:hover {
+        // transform: skewY(1deg) skewX(1deg) scale(1.05); наклон по Y, X и увеличение на 5%
+        transform: scale(1.05);
+        text-shadow: $shadow-025 ;
+    }
+    &_white {
+        color: $color-white;
+    }
+    // media
+    @include respond(tab-land) {
+        font-size: 3rem;
+    }
+}
+.title-third {
+    text-transform: uppercase;
+    font-size: $font-size-h3;
+    font-weight: 700;
+    // media
+    @include respond(tab-land) {
+        font-size: 1.7rem;
+    }
+    // media
+    @include respond(tab-port) {
+        letter-spacing: .1rem;
+    }
+}
+.paragraph {
+    line-height: 140%;
+    // media
+    @include respond(tab-land) {
+        font-size: 1.4rem;
+    }
+    // media
+    @include respond(tab-port) {
+        letter-spacing: .1rem;
+    }
+}

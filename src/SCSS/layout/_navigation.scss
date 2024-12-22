@@ -1,0 +1,188 @@
+// навигацинное меню в бургере
+.navigation {
+    // скрытие checkbox
+    &__toggle {
+        display: none;
+    }
+    // настройки кнопки
+    &__button {
+        //цвет позиция форма
+        background: $color-white;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 100rem;
+        position: fixed;
+        top: 10rem;
+        right: 10rem;
+        z-index: 200;
+        // выравнивание полосок по горизонтали по центру
+        text-align: center;
+        // настройка при наведении курсора
+        cursor: pointer;
+        // media
+        @include respond(phone) {
+            top: 8rem;
+            right: 8rem;
+        }
+    }
+    // фоновый цвет окна навигации
+    &__background {
+        // размеры форма цвет
+        width: 5rem;
+        height: 5rem;
+        border-radius: 100rem;
+        background: radial-gradient($color-brown-light, $color-brown-dark);
+        // позицонирование
+        position: fixed;
+        right: 10.5rem;
+        top: 10.5rem;
+        z-index: 100;
+        // плавность перехода анимации
+        transition: all .3s ease-out;
+        // media
+        @include respond(phone) {
+            top: 8.5rem;
+            right: 8.5rem;
+        }
+    }
+    // навигационное меню
+    &__nav {
+        // размеры
+        height: 100vh;
+        width: 100%;
+        // позиционирование
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 150;
+        // первоначальные настройки отображения
+        opacity: 0;
+        width: 0;
+        // плавность анимации
+        transition: all .5s cubic-bezier(0, 1.02, 1, 1.25); // последняя настройка делает плавное движение списка по горизонтали 
+    }
+    // список ul позиционирование
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+    // элементы списка li
+    &__list-item {
+        // выравнивание по ширине по центру
+        text-align: center;
+        width: 100%;
+        // настройка отступов между элементами
+        &:not(:last-child) {
+            margin-bottom: 6rem;
+            //media
+            @include respond(tab-land) {
+                margin-bottom: 4rem;
+            }
+        }
+    }
+    // ссылки внутри li
+    &__link {
+        &:link, &:visited {
+            // параметры текста
+            font-size: 4rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            color: $color-white;
+            letter-spacing: .5rem;
+            // фон ссылок
+            background: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            // изначальный размер
+            background-size: 250%;
+            // отступы внутри ссылки
+            padding: .3rem;
+            // плавность анимации при наведении
+            transition: all .5s;
+            display: inline-block;
+            //media
+            @include respond(tab-land) {
+                font-size: 3.6rem;
+            }
+            // media
+            @include respond(tab-port) {
+                font-size: 3rem;
+            }
+        }
+        // настройки при наведении
+        &:hover, &:active {
+            // создает анимацию заполнения
+            background-position: 100%;
+            color: $color-brown-dark;
+            // смещение вправо при наведении на ссылку
+            transform: translateX(.5rem);
+        }
+    }
+    // создает фон при нажатии
+    &__toggle:checked ~ &__background {
+        transform: scale(75);
+        // media
+        @include respond(tab-land) {
+            transform: scale(65);
+        }
+        @include respond(big-screen) {
+            transform: scale(100);
+        }
+    }
+    // список выезжает при нажатии
+    &__toggle:checked ~ &__nav {
+        width: 100%;
+        opacity: 1;
+    }
+    // черточки внутри бургера
+    &__icon {
+        // позиционирование внутри круга
+        position: relative;
+        margin-top: 3.5rem;
+        
+        &, &::before, &::after {
+            // размеры фон
+            width: 3rem;
+            height: .2rem;
+            background: $color-black;
+            display: inline-block;
+        }
+        // верхняя и нижняя черты
+        &::before, &::after {
+            content: "";
+            // позиционирование
+            position: absolute;
+            left: 0;
+            transition: all .3s ease;
+        }
+        // позиционирование верхней черты
+        &::before {
+            top: -.8rem;
+        }
+        // позиционирование нижней черты
+        &::after {
+            top: .8rem;
+        }
+    }
+    // анимация при наведении
+    &__button:hover &__icon::before {
+        top: -1.2rem;
+    }
+    &__button:hover &__icon::after {
+        top: 1.2rem ;
+    }
+    // при нажатии средняя черта исчезает
+    &__toggle:checked + &__button &__icon {
+        background: transparent;
+    }
+    // анимация перехода в крестик при нажатии
+    &__toggle:checked + &__button &__icon::before {
+        transform: rotate(135deg);
+        top: 0;
+    }
+    &__toggle:checked + &__button &__icon::after {
+        transform: rotate(-135deg);
+        top: 0;
+    }
+}

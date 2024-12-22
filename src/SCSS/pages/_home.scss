@@ -1,0 +1,40 @@
+.section-about {
+    padding: 8rem 5rem 5.5rem 5rem;
+    // media
+    @include respond(tab-port) {
+        padding: 5rem 2.5rem;
+    }
+}
+.section-advanture {
+    padding: 21rem 2.5rem;
+    background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0%, rgba($color-brown-dark, 0.7) 100%), url(../img/advanture-bg.png) center/cover no-repeat;
+    clip-path: polygon(0 0, 100% 18%, 100% 100%, 0 82%);
+    // media
+    @include respond(tab-port) {
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        margin: 0 auto;
+        padding: 8rem 2.5rem;
+    }
+}
+.section-tour {
+    padding: 8rem 2.5rem;
+    // media
+    @include respond(tab-port) {
+        padding: 5rem 2.5rem;
+    }
+}
+.section-feedBack {
+    padding: 8rem 0;
+    position: relative;
+    // media
+    @include respond(tab-port) {
+        padding: 5rem 0;
+    }
+}
+.section-book {
+    padding: 10rem 0;
+    background: linear-gradient(90deg, $color-brown-light, $color-brown-dark);
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}

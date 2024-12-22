@@ -1,0 +1,84 @@
+.btn {
+    &, &:link, &:visited {
+        // Настройка текста
+        @include style-link($color-grey);
+        font-size: 2rem;
+        letter-spacing: .5rem;
+        // Настройка фона
+        background: $color-white;
+        padding: 1.5rem 4rem;
+        border-radius: 5rem;
+        // Настройка перехода
+        position: relative; 
+        transition: all .3s;
+        // Тень
+        box-shadow: $shadow-025;
+        //media
+        @include respond(tab-land) {
+            font-size: 1.6rem;
+        }
+    }
+    // настройки при наведении
+    &:hover {
+        transform: translateY(-.4rem);
+        box-shadow: $shadow-03;
+        // псевдоэлемент при наведении
+        &::after {
+            transform: scaleX(1.5) scaleY(1.7);
+            opacity: 0;
+        }
+    }
+    // настройки при нажатии
+    &:active {
+        transform: translateY(-.2rem);
+        box-shadow: $shadow-01;
+    }
+    // псевдоэлемент (иммитация взрыва кнопки)
+    &::after { // псевдоэлемент
+        content: ""; // обязательно нужна эта строка
+        width: 100%;
+        height: 100%;
+        background: $color-white;
+        border-radius: 10rem;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .5s;
+    }
+    &_animated {
+        animation-name: bottomToTop;
+        @include animation-settings;
+    }
+    // кнопки на карточках
+    &_card {
+        &, &:link, &:visited {
+            //media
+            @include respond(tab-land) {
+                padding: 1.5rem 2.5rem;
+                letter-spacing: .4rem;
+            }
+        }
+        // настройки при наведении
+        &:hover {
+            // псевдоэлемент при наведении
+            &::after {
+                transform: scaleX(1.1) scaleY(1.2);
+                opacity: 0;
+            }
+        }
+    }
+}
+// кнопка в форме
+.btn_brown {
+    &, &:link, &:visited {
+        background: $color-brown-light;
+        color: $color-white;
+    }
+    
+    &::after {
+            background: $color-brown-light;
+        }
+    
+}

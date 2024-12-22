@@ -1,0 +1,33 @@
+// размер шрифта для применения rem
+html {
+    font-size: 62.5%; // эквивалентно 10px, тк 100% - 16px, пишем в процентах, чтобы при настройках браузера для слабовидящих Крупный или Очень крупный текст, наш текст тоже масштабировался 
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+    @include respond(phone) {
+        font-size: 30%;
+    }
+    @include respond(big-screen) {
+        font-size: 90%;
+    }
+}
+// html прописан в самом верху, чтобы его font-size подействовал на все элементы (rem)
+// Внешняя рамка
+body {
+    padding: 5rem;
+    background: $color-white;
+    // media
+    @include respond(tab-port) {
+        padding: 3rem;
+    }
+}
+// Светло-серая оболочка
+.container {
+    background: #F7F7F7;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+}

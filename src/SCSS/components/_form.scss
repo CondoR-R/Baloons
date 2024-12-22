@@ -1,0 +1,135 @@
+// form
+
+// карточка с формой
+.book {
+    height: 50rem;
+    background: linear-gradient(110deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 55%, rgba($color-brown-light, 0.1) 55%, rgba($color-brown-dark, 0.1) 100%), url(../img/form-image.jpg) center/cover no-repeat;
+    box-shadow: $shadow-03;
+    border-radius: 1rem;
+    overflow: hidden;
+    // media
+    @include respond(tab-port) {
+        border-radius: 0;
+    }
+    // media
+    @include respond(phone) {
+        background: linear-gradient(110deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 55%), url(../img/form-image.jpg) center/cover no-repeat;
+    }
+}
+// форма
+.form {
+    width: 80%;
+    padding: 5rem;
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+        //media
+        @include respond(tab-land) {
+            margin-bottom: 1rem;
+        }
+    }
+    &__group:nth-child(4) {
+        margin-bottom: 3.8rem;
+        //media
+        @include respond(tab-land) {
+            margin-bottom: 3rem;
+        }
+    }
+    &__input {
+        font-size: 1.6rem;
+        font-family: 'Roboto';
+        letter-spacing: .2rem;
+        color: $color-black;
+        padding: 1.8rem 2.2rem;
+        background: $color-white;
+        box-shadow: $shadow-025;
+        width: 60%;
+        border-bottom: .3rem solid transparent;
+        border-radius: .5rem;
+        &:focus {
+            border-bottom: .3rem solid #66D763;
+            &:invalid {
+                border-bottom: .3rem solid #D76363;
+            }
+        }
+        // media
+        @include respond(phone) {
+            width: 100%;
+        }
+        @include respond(big-screen) {
+            width: 50%;
+        }
+    }
+    // настройка отображение текста под инпутом во время ввода
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-1rem);
+    }
+    // настройка лейбла
+    &__label {
+        display: block ;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        transition: all .5s;
+    }
+    // радио кнопки
+    &__group-radio {
+        width: 30%;
+        display: inline-block;
+        //media
+        @include respond(tab-land) {
+            display: block;
+            width: 60%;
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+        // media
+        @include respond(phone) {
+            width: 100%;
+        }
+        @include respond(big-screen) {
+            width: 30%;
+        }
+    }
+    &__input-radio {
+        display: none;
+    }
+    &__label-radio {
+        cursor: pointer;
+        position: relative;
+        padding-left: 4rem;
+    }
+    &__button-radio {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: .5rem solid $color-brown-light;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: -.6rem;
+        &::after {
+            content: "";
+            display: block;
+            width: 1.4rem;
+            height: 1.4rem;
+            border-radius: 50%;
+            background: $color-brown-light;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all .3s;
+        }
+    }
+    // настройка отображения коричневой точки во время выбора
+    &__input-radio:checked ~ &__label-radio &__button-radio::after {
+        opacity: 1;
+    }
+    // media
+    @include respond(tab-port) {
+        width: 80%;
+    }
+}

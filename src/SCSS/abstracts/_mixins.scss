@@ -1,0 +1,62 @@
+// Настройки анимации
+@mixin animation-settings {
+    animation-duration: 2s;
+    animation-delay: .7s;
+    animation-timing-function: ease;
+    backface-visibility: hidden;
+    animation-fill-mode: backwards; // применяет настройки первого кадра анимации на время задержки 
+}
+
+// Настройки ссылок
+@mixin style-link($color) {
+    text-transform: uppercase;
+    display: inline-block;
+    color: $color;
+}
+
+// Костыль для float-оф
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Медиа теги 
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 900px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 1240px) {
+            @content;
+        }
+    }
+    @if $breakpoint == big-screen {
+        @media only screen and (min-width: 1800px) {
+            @content;
+        }
+    }
+}
+/*
+@include respond(tab-land) {
+
+}
+@include respond(tab-port) {
+    
+}
+@include respond(phone) {
+    
+}
+@include respond(big-screen) {
+    
+}
+*/

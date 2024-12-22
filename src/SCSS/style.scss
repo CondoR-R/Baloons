@@ -1,0 +1,30 @@
+@import 'res-and-norm/normalize';
+@import 'res-and-norm/reset';
+
+@import 'fonts/fonts';
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+@import 'base/animation';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'components/button';
+@import 'components/button-text';
+@import 'components/composition';
+@import 'components/adbanture-card';
+@import 'components/tour-card';
+@import 'components/feedBack-card';
+@import 'components/bg-viseo';
+@import 'components/form';
+@import 'components/navigation';
+
+@import 'pages/home';
+
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/grid';
+@import 'layout/footer';

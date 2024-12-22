@@ -1,0 +1,22 @@
+.btn-text {
+    &:link, &:visited {
+        font-weight: 700;
+        color: $color-brown-light;
+        padding: 1rem;
+        border-bottom: .1rem solid $color-brown-light;
+        display: inline-block;
+        transition: all .5s;
+    }
+    // настройки при наведении
+    &:hover {
+        background: $color-brown-light;
+        color: $color-white;
+        box-shadow: $shadow-03;
+        transform: translateY(-.2rem);
+    }
+    // настройки при нажатии
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: $shadow-01;
+    }
+}

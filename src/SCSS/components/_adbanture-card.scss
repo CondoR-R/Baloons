@@ -1,0 +1,24 @@
+.adventure-card {
+    padding: 2.5rem;
+    background: rgba($color-white, .8);
+    border-radius: .5rem;
+    box-shadow: $shadow-03;
+    text-align: center;
+    transition: all .3s;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: $shadow-05;
+    }
+    &__icon {
+        background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0%, rgba($color-brown-dark, 0.7) 100%);
+        font-size: 6.3rem;
+        background-clip: text; // накладывает градиент на текст
+        color: transparent;
+        display: inline-block;
+    }
+    // media
+    @include respond(tab-port) {
+        width: 80%;
+        margin: 0 auto 2rem auto;
+    }
+}
